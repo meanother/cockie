@@ -30,9 +30,6 @@ def read_config() -> dict:
     with open(path, "r") as f:
         file = f.read().split("\n")
 
-    for line in file:
-        print(line)
-
     password = file[1].split(" = ")[1].replace('"', '')[:-1]
     cookie = file[3].split(" = ")[1].replace('"', '')[:-1]
     url = file[2].split(" = ")[1].replace('"', '')[:-1]
