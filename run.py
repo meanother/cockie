@@ -77,7 +77,7 @@ def replace_new_cookie() -> None:
 
 def restart_pm2() -> None:
     cmd = ["pm2", "restart", "WgEasyServer/index.js"]
-    result = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+    result = subprocess.check_output(cmd, stderr=subprocess.STDOUT).decode("utf-8")
     logger.info(result)
 
 
