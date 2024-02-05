@@ -1,4 +1,5 @@
 #!/root/code/cookie/env/bin/python
+import sys
 
 import requests
 import subprocess
@@ -25,7 +26,7 @@ def read_config() -> dict:
     path = Path(config_path)
     if not path.exists():
         logger.error("file: config.js not found!")
-        return {}
+        sys.exit()
     with open(path, "r") as f:
         file = f.read().split("\n")
 
@@ -47,6 +48,7 @@ def replace(old_value: str, new_value: str) -> None:
     path = Path(config_path)
     if not path.exists():
         logger.error("file: config.js not found!")
+        sys.exit()
 
     with open(path, "r") as f:
         file = f.read()
